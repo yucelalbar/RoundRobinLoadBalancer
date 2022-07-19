@@ -7,7 +7,8 @@
 template<class T>
 class ILoadBalancingStrategy {
 public:
-    virtual std::shared_ptr<T> next(const std::vector<std::shared_ptr<T>>& clients) = 0;
+    virtual ~ILoadBalancingStrategy() {}
+    virtual T* next(const std::vector<std::unique_ptr<T>>& clients) = 0;
 };
 
 #endif
